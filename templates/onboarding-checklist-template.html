@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding Checklist Template</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    .kb-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Header styles */
+    .kb-header {
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+      color: white;
+      padding: 25px 30px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .kb-logo-container {
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .kb-logo {
+      max-width: 130px;
+    }
+
+    .kb-header-text {
+      flex-grow: 1;
+    }
+
+    .kb-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .kb-subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Content area */
+    .kb-content {
+      padding: 30px;
+    }
+
+    /* Metadata section */
+    .kb-metadata {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 6px;
+      border-left: 4px solid #3498db;
+    }
+
+    .kb-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kb-meta-label {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .kb-meta-value {
+      color: #555;
+    }
+
+    /* Section styling */
+    .kb-section {
+      margin-bottom: 35px;
+    }
+
+    .kb-section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #3498db;
+      position: relative;
+    }
+
+    .kb-section-title::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: #e74c3c;
+    }
+
+    /* List styles */
+    .kb-list {
+      margin: 15px 0;
+      padding-left: 0;
+    }
+
+    .kb-list li {
+      margin: 8px 0;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 4px;
+      border-left: 3px solid #3498db;
+      list-style: none;
+      position: relative;
+    }
+
+    .kb-list li::before {
+      content: "▶";
+      color: #3498db;
+      font-weight: bold;
+      position: absolute;
+      left: -8px;
+      top: 12px;
+    }
+
+    .kb-ordered-list {
+      counter-reset: step-counter;
+      margin: 15px 0;
+      padding-left: 0;
+    }
+
+    .kb-ordered-list li {
+      counter-increment: step-counter;
+      margin: 10px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 4px;
+      border-left: 3px solid #e74c3c;
+      list-style: none;
+      position: relative;
+    }
+
+    .kb-ordered-list li::before {
+      content: counter(step-counter);
+      background: #e74c3c;
+      color: white;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: -12px;
+      top: 15px;
+      font-size: 12px;
+    }
+
+    /* Alert boxes */
+    .kb-alert {
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 6px;
+      border-left: 4px solid;
+      position: relative;
+    }
+
+    .kb-alert-info {
+      background: #e8f4f8;
+      border-left-color: #3498db;
+      color: #2c3e50;
+    }
+
+    .kb-alert-warning {
+      background: #fff3cd;
+      border-left-color: #ffc107;
+      color: #856404;
+    }
+
+    .kb-alert-danger {
+      background: #f8d7da;
+      border-left-color: #dc3545;
+      color: #721c24;
+    }
+
+    .kb-alert-success {
+      background: #d4edda;
+      border-left-color: #28a745;
+      color: #155724;
+    }
+
+    .kb-alert-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    /* Code and pre styles */
+    .kb-code {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 20px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 15px 0;
+    }
+
+    .kb-inline-code {
+      background: #f1f2f6;
+      color: #e74c3c;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 90%;
+    }
+
+    /* Table styles */
+    .kb-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: white;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .kb-table th {
+      background: #3498db;
+      color: white;
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .kb-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .kb-table tr:hover {
+      background: #f8f9fa;
+    }
+
+    /* Image styles */
+    .kb-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+    }
+
+    .kb-image-caption {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    .kb-footer {
+      background: #f8f9fa;
+      padding: 20px 30px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      .kb-header {
+        padding: 20px;
+      }
+
+      .kb-title {
+        font-size: 24px;
+      }
+
+      .kb-content {
+        padding: 20px;
+      }
+
+      .kb-metadata {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .kb-table {
+        font-size: 14px;
+      }
+
+      .kb-table th,
+      .kb-table td {
+        padding: 10px;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      .kb-container {
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+
+      .kb-header {
+        background: #2c3e50 !important;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="kb-container">
+    <!-- Header Section -->
+    <div class="kb-header">
+      <div class="kb-logo-container">
+        <img src="logo.png" alt="Corporate Logo" class="kb-logo">
+      </div>
+      <div class="kb-header-text">
+        <h1 class="kb-title">Onboarding Checklist Template</h1>
+        <p class="kb-subtitle">Checklist for new [Role/Employee Type] onboarding</p>
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="kb-content">
+      <!-- Metadata Section -->
+      <div class="kb-metadata">
+        <div class="kb-meta-item">
+          <span class="kb-meta-label">Checklist ID:</span>
+          <span class="kb-meta-value">[OC-XXXX]</span>
+        </div>
+        <div class="kb-meta-item">
+          <span class="kb-meta-label">Role/Department:</span>
+          <span class="kb-meta-value">[Role/Department Name]</span>
+        </div>
+        <div class="kb-meta-item">
+          <span class="kb-meta-label">Last Updated:</span>
+          <span class="kb-meta-value">[Date]</span>
+        </div>
+        <div class="kb-meta-item">
+          <span class="kb-meta-label">Author:</span>
+          <span class="kb-meta-value">[Author Name]</span>
+        </div>
+      </div>
+
+      <!-- Overview Section -->
+      <div class="kb-section">
+        <h2 class="kb-section-title">Overview</h2>
+        <p>This checklist outlines the necessary steps for onboarding new [Role/Employee Type] employees.</p>
+      </div>
+
+      <!-- Pre-Arrival Tasks -->
+      <div class="kb-section">
+        <h2 class="kb-section-title">Pre-Arrival Tasks</h2>
+        <ul class="kb-list">
+          <li>[Task 1]</li>
+          <li>[Task 2]</li>
+          <li>[Task 3]</li>
+        </ul>
+      </div>
+
+      <!-- First Day Tasks -->
+      <div class="kb-section">
+        <h2 class="kb-section-title">First Day Tasks</h2>
+        <ul class="kb-list">
+          <li>[Task 1]</li>
+          <li>[Task 2]</li>
+          <li>[Task 3]</li>
+        </ul>
+      </div>
+
+      <!-- First Week Tasks -->
+      <div class="kb-section">
+        <h2 class="kb-section-title">First Week Tasks</h2>
+        <ul class="kb-list">
+          <li>[Task 1]</li>
+          <li>[Task 2]</li>
+          <li>[Task 3]</li>
+        </ul>
+      </div>
+
+      <!-- First Month Tasks -->
+      <div class="kb-section">
+        <h2 class="kb-section-title">First Month Tasks</h2>
+        <ul class="kb-list">
+          <li>[Task 1]</li>
+          <li>[Task 2]</li>
+          <li>[Task 3]</li>
+        </ul>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="kb-section">
+        <h2 class="kb-section-title">Additional Information</h2>
+        <ul class="kb-list">
+          <li>Link to relevant policies or documents</li>
+          <li>Contact information for HR/Manager</li>
+        </ul>
+      </div>
+
+      <!-- Version History -->
+      <div class="kb-section">
+        <h2 class="kb-section-title">Version History</h2>
+        <table class="kb-table">
+          <thead>
+            <tr>
+              <th>Version</th>
+              <th>Date</th>
+              <th>Changes</th>
+              <th>Author</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.0</td>
+              <td>[Initial Date]</td>
+              <td>Initial creation</td>
+              <td>[Author Name]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="kb-footer">
+      <p>This onboarding checklist was created for [Organization Name]</p>
+      <p>For additional support, contact: [Contact Information]</p>
+    </div>
+  </div>
+</body>
+
+</html>

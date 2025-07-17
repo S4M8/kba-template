@@ -1,0 +1,102 @@
+{
+  "title": "[Application Process Name]",
+  "subtitle": "[Brief description of the process]",
+  "metadata": {
+    "Process ID": "[PROC-XXXX]",
+    "Application": "[Application Name]",
+    "Last Updated": "[Date]",
+    "Author": "[Author Name]"
+  },
+  "sections": [
+    {
+      "title": "Overview",
+      "content": [
+        "Provide a clear, concise overview of the application process. This should give readers a quick understanding of what the process accomplishes."
+      ]
+    },
+    {
+      "title": "Process",
+      "content": [
+        {
+          "alert": {
+            "title": "Before You Begin",
+            "content": "List any prerequisites, permissions, or preparations needed before starting the solution."
+          }
+        },
+        {
+          "list": [
+            "First step descriptionProvide detailed instructions for the first step. Include any specific settings, locations, or commands.",
+            "Second step descriptionContinue with the next step. Use clear, actionable language.",
+            "Third step descriptionAdd more steps as needed. Each step should be atomic and clear."
+          ]
+        },
+        {
+          "alert": {
+            "title": "Important Note",
+            "content": "Include any warnings, cautions, or important considerations that users should be aware of."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Code Example",
+      "content": [
+        "If your solution involves code, scripts, or command-line instructions, include them here:",
+        {
+          "code": "# Example command or script\n          echo \"This is a sample command\"\n          Get-Service | Where-Object {$_.Status -eq \"Running\"}"
+        },
+        "For inline code references, use:Get-Process"
+      ]
+    },
+    {
+      "title": "Additional Information",
+      "content": [
+        {
+          "list": [
+            "Link to related knowledge base articles",
+            "References to official documentation",
+            "Contact information for additional support"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Verification",
+      "content": [
+        {
+          "alert": {
+            "title": "Success Indicators",
+            "content": "Describe how users can verify that the solution worked correctly:Expected system behaviorSpecific confirmation messagesPerformance improvements"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Version History",
+      "content": [
+        {
+          "table": [
+            [
+              "Version",
+              "Date",
+              "Changes",
+              "Author"
+            ],
+            [
+              "1.0",
+              "[Initial Date]",
+              "Initial creation",
+              "[Author Name]"
+            ],
+            [
+              "1.1",
+              "[Update Date]",
+              "Added troubleshooting section",
+              "[Author Name]"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
