@@ -358,8 +358,8 @@
         <img src="logo.png" alt="Corporate Logo" class="kb-logo">
       </div>
       <div class="kb-header-text">
-        <h1 class="kb-title">[Application Process Name]</h1>
-        <p class="kb-subtitle">[Brief description of the process]</p>
+        <h1 class="kb-title">Password Reset Process for Active Directory Users</h1>
+        <p class="kb-subtitle">Step-by-step guide for help desk technicians to reset user passwords.</p>
       </div>
     </div>
 
@@ -369,81 +369,88 @@
       <div class="kb-metadata">
         <div class="kb-meta-item">
           <span class="kb-meta-label">Process ID:</span>
-          <span class="kb-meta-value">[PROC-XXXX]</span>
+          <span class="kb-meta-value">PROC-AD-001</span>
         </div>
         <div class="kb-meta-item">
           <span class="kb-meta-label">Application:</span>
-          <span class="kb-meta-value">[Application Name]</span>
+          <span class="kb-meta-value">Active Directory</span>
         </div>
         <div class="kb-meta-item">
           <span class="kb-meta-label">Last Updated:</span>
-          <span class="kb-meta-value">[Date]</span>
+          <span class="kb-meta-value">2025-07-16</span>
         </div>
         <div class="kb-meta-item">
           <span class="kb-meta-label">Author:</span>
-          <span class="kb-meta-value">[Author Name]</span>
+          <span class="kb-meta-value">AI Assistant</span>
         </div>
       </div>
 
       <!-- Overview Section -->
       <div class="kb-section">
         <h2 class="kb-section-title">Overview</h2>
-        <p>Provide a clear, concise overview of the application process. This should give readers a quick understanding of what the process accomplishes.</p>
+        <p>This document outlines the standard operating procedure for help desk technicians to reset user passwords within Active Directory. This process ensures security compliance and efficient resolution of user access issues.</p>
       </div>
 
-      
-
+      <!-- Process Section -->
       <div class="kb-section">
         <h2 class="kb-section-title">Process</h2>
 
         <div class="kb-alert kb-alert-info">
           <div class="kb-alert-title">Before You Begin</div>
-          List any prerequisites, permissions, or preparations needed before starting the solution.
+          Ensure you have appropriate administrative privileges in Active Directory Users and Computers (ADUC) and have verified the user's identity according to company policy.
         </div>
 
         <h3>Process Steps</h3>
         <ol class="kb-ordered-list">
           <li>
-            <strong>First step description</strong><br>
-            Provide detailed instructions for the first step. Include any specific settings, locations, or commands.
+            <strong>Open Active Directory Users and Computers (ADUC):</strong><br>
+            On your administrative workstation, open Server Manager, then navigate to Tools > Active Directory Users and Computers.
           </li>
           <li>
-            <strong>Second step description</strong><br>
-            Continue with the next step. Use clear, actionable language.
+            <strong>Locate the User Account:</strong><br>
+            In the ADUC console, browse to the Organizational Unit (OU) where the user's account is located. You can also use the "Find" feature (Ctrl+F) to search for the user by name.
           </li>
           <li>
-            <strong>Third step description</strong><br>
-            Add more steps as needed. Each step should be atomic and clear.
+            <strong>Reset Password:</strong><br>
+            Right-click on the user account, select "Reset Password...".
+          </li>
+          <li>
+            <strong>Enter New Password:</strong><br>
+            In the "Reset Password" dialog box, enter a new, strong password in both the "New password" and "Confirm password" fields. Ensure the password meets complexity requirements.
+          </li>
+          <li>
+            <strong>Set User Options:</strong><br>
+            Typically, you should check "User must change password at next logon" to enforce a new password creation by the user. Uncheck "Account is locked out" if it is checked.
+          </li>
+          <li>
+            <strong>Confirm Reset:</strong><br>
+            Click "OK" to complete the password reset. Inform the user of their temporary password and instruct them to change it immediately upon logging in.
           </li>
         </ol>
 
         <div class="kb-alert kb-alert-warning">
           <div class="kb-alert-title">Important Note</div>
-          Include any warnings, cautions, or important considerations that users should be aware of.
+          Never share temporary passwords via unencrypted channels (e.g., unencrypted email or chat). Always communicate them securely, preferably verbally or through a secure, one-time password system.
         </div>
       </div>
 
       <!-- Code Example (if applicable) -->
       <div class="kb-section">
-        <h2 class="kb-section-title">Code Example</h2>
-        <p>If your solution involves code, scripts, or command-line instructions, include them here:</p>
+        <h2 class="kb-section-title">PowerShell Command for Password Reset</h2>
+        <p>For experienced technicians, a password can also be reset using PowerShell:</p>
         <div class="kb-code">
-          # Example command or script
-          echo "This is a sample command"
-          Get-Service | Where-Object {$_.Status -eq "Running"}
+          Set-ADUser -Identity "username" -NewPassword (Read-Host -AsSecureString "Enter new password") -ChangePasswordAtLogon $true
         </div>
-        <p>For inline code references, use: <span class="kb-inline-code">Get-Process</span></p>
+        <p>Replace <code>"username"</code> with the actual user's SAMAccountName.</p>
       </div>
-
-      
 
       <!-- Additional Information -->
       <div class="kb-section">
-        <h2 class="kb-section-title">Additional Information</h2>
+        <h2 class="kb-section-title">Related Articles</h2>
         <ul class="kb-list">
-          <li>Link to related knowledge base articles</li>
-          <li>References to official documentation</li>
-          <li>Contact information for additional support</li>
+          <li><a href="#">KB-AD-002: Unlocking User Accounts in Active Directory</a></li>
+          <li><a href="#">PROC-AD-003: Creating New User Accounts in Active Directory</a></li>
+          <li>Internal Policy: Password Management Policy</li>
         </ul>
       </div>
 
@@ -452,11 +459,11 @@
         <h2 class="kb-section-title">Verification</h2>
         <div class="kb-alert kb-alert-success">
           <div class="kb-alert-title">Success Indicators</div>
-          <p>Describe how users can verify that the solution worked correctly:</p>
+          <p>The password reset is successful when:</p>
           <ul style="margin-top: 10px;">
-            <li>Expected system behavior</li>
-            <li>Specific confirmation messages</li>
-            <li>Performance improvements</li>
+            <li>The user is able to log in with the new temporary password.</li>
+            <li>The user is prompted to change their password upon first login (if "User must change password at next logon" was checked).</li>
+            <li>The user confirms successful access to their resources.</li>
           </ul>
         </div>
       </div>
@@ -476,15 +483,9 @@
           <tbody>
             <tr>
               <td>1.0</td>
-              <td>[Initial Date]</td>
-              <td>Initial creation</td>
-              <td>[Author Name]</td>
-            </tr>
-            <tr>
-              <td>1.1</td>
-              <td>[Update Date]</td>
-              <td>Added troubleshooting section</td>
-              <td>[Author Name]</td>
+              <td>2025-07-16</td>
+              <td>Initial creation of Active Directory password reset process.</td>
+              <td>AI Assistant</td>
             </tr>
           </tbody>
         </table>
@@ -493,8 +494,8 @@
 
     <!-- Footer -->
     <div class="kb-footer">
-      <p>This knowledge base article was created for [Organization Name] Help Desk Team</p>
-      <p>For additional support, contact: [Contact Information]</p>
+      <p>This process document was created for Example Corp Help Desk Team</p>
+      <p>For additional support, contact: helpdesk@example.com</p>
     </div>
   </div>
 </body>

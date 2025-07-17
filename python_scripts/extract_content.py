@@ -38,7 +38,11 @@ def extract_html_content(file_path):
             elif element.name == 'ul' or element.name == 'ol':
                 list_items = []
                 for li in element.find_all('li'):
-                    list_items.append(li.get_text(strip=True))
+                    step_title_tag = li.find('strong')
+                    step_title = step_title_tag.get_text(strip=True) if step_title_tag else ""
+                    # Get text after the strong tag, handling <br>
+                    step_description = ''.join(str(x) for x in li.contents if x not in [step_title_tag, li.find('br')]).strip()
+                    list_items.append({"title": step_title, "description": step_description})
                 section_content.append({"list": list_items})
             elif element.name == 'div' and 'kb-alert' in element.get('class', []):
                 alert_title = element.find('div', class_='kb-alert-title')

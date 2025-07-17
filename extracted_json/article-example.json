@@ -1,17 +1,17 @@
 {
-  "title": "[ARTICLE TITLE]",
-  "subtitle": "[Brief description of what this article covers]",
+  "title": "Troubleshooting Email Client Connection Issues",
+  "subtitle": "Resolving common problems with Outlook, Thunderbird, and webmail access.",
   "metadata": {
-    "Article ID": "[KB-XXXX]",
-    "Category": "[Software/Hardware/Network/etc.]",
-    "Last Updated": "[Date]",
-    "Author": "[Author Name]"
+    "Article ID": "KB-EML-001",
+    "Category": "Software/Email",
+    "Last Updated": "2025-07-16",
+    "Author": "AI Assistant"
   },
   "sections": [
     {
       "title": "Overview",
       "content": [
-        "Provide a clear, concise overview of the issue, procedure, or topic. This should give readers a quick understanding of what they'll learn from this article."
+        "This article provides step-by-step instructions to diagnose and resolve common email client connection problems, including issues with sending, receiving, or accessing email through desktop applications like Microsoft Outlook or Mozilla Thunderbird, and web-based email services."
       ]
     },
     {
@@ -19,9 +19,26 @@
       "content": [
         {
           "list": [
-            "Describe the first symptom or indicator of the problem",
-            "List additional symptoms users might experience",
-            "Include error messages or codes if applicable"
+            {
+              "title": "",
+              "description": "Email client displays \"Disconnected\" or \"Needs Password\" message."
+            },
+            {
+              "title": "",
+              "description": "Unable to send or receive emails."
+            },
+            {
+              "title": "",
+              "description": "Error messages like \"Server not found,\" \"Connection timed out,\" or \"Authentication failed.\""
+            },
+            {
+              "title": "",
+              "description": "Webmail access issues (e.g., unable to log in, page not loading)."
+            },
+            {
+              "title": "",
+              "description": "Emails stuck in outbox."
+            }
           ]
         }
       ]
@@ -29,7 +46,7 @@
     {
       "title": "Cause",
       "content": [
-        "Explain the root cause of the issue or why this procedure is necessary. This helps technicians understand the underlying problem."
+        "Email connection issues can stem from various sources, including incorrect account settings, network connectivity problems, firewall/antivirus interference, or server-side outages. This guide will help you systematically check for these common causes."
       ]
     },
     {
@@ -38,36 +55,57 @@
         {
           "alert": {
             "title": "Before You Begin",
-            "content": "List any prerequisites, permissions, or preparations needed before starting the solution."
+            "content": "Ensure your computer is connected to the internet and try accessing a website (e.g., google.com) to confirm basic network connectivity."
           }
         },
         {
           "list": [
-            "First step descriptionProvide detailed instructions for the first step. Include any specific settings, locations, or commands.",
-            "Second step descriptionContinue with the next step. Use clear, actionable language.",
-            "Third step descriptionAdd more steps as needed. Each step should be atomic and clear."
+            {
+              "title": "Check Internet Connection:",
+              "description": "Verify your device has an active internet connection. Try opening a web browser and navigating to a known website like <code>https://www.google.com</code>. If you cannot access websites, troubleshoot your network connection first."
+            },
+            {
+              "title": "Verify Email Account Settings:",
+              "description": "Incorrect server settings (IMAP/POP3, SMTP), port numbers, or encryption methods are common culprits. Refer to your email provider's documentation for the correct settings. For corporate email, contact your IT department."
+            },
+            {
+              "title": "Check Password:",
+              "description": "Confirm you are using the correct password. If you recently changed your email password, update it in your email client settings. Try logging into your webmail directly to rule out a password issue."
+            },
+            {
+              "title": "Disable Firewall/Antivirus Temporarily:",
+              "description": "Security software can sometimes block email client connections. Temporarily disable your firewall or antivirus software and try connecting. If this resolves the issue, configure your security software to allow your email client."
+            },
+            {
+              "title": "Restart Email Client and Computer:",
+              "description": "A simple restart can often resolve temporary glitches. Close your email client completely and reopen it. If the issue persists, restart your computer."
+            },
+            {
+              "title": "Repair/Recreate Email Profile (Outlook Specific):",
+              "description": "For Microsoft Outlook, a corrupted mail profile can cause connection issues. You can try repairing your existing profile or creating a new one via the Mail Setup (Outlook) in Control Panel."
+            }
           ]
         },
         {
           "alert": {
             "title": "Important Note",
-            "content": "Include any warnings, cautions, or important considerations that users should be aware of."
+            "content": "Temporarily disabling security software should only be done for testing purposes. Re-enable it immediately after testing to protect your system."
           }
         }
       ]
     },
     {
-      "title": "Code Example",
+      "title": "Command Line Network Test",
       "content": [
-        "If your solution involves code, scripts, or command-line instructions, include them here:",
+        "You can use thepingcommand to test connectivity to your email server:",
         {
-          "code": "# Example command or script\n          echo \"This is a sample command\"\n          Get-Service | Where-Object {$_.Status -eq \"Running\"}"
+          "code": "ping mail.example.com\n          telnet mail.example.com 993"
         },
-        "For inline code references, use:Get-Process"
+        "Replacemail.example.comwith your actual email server address and993with the appropriate port (e.g., 587 for SMTP, 993 for IMAPS, 995 for POP3S)."
       ]
     },
     {
-      "title": "Troubleshooting",
+      "title": "Troubleshooting Table",
       "content": [
         {
           "table": [
@@ -77,32 +115,41 @@
               "Solution"
             ],
             [
-              "Error message appears",
-              "Insufficient permissions",
-              "Run as administrator"
+              "\"Authentication Failed\"",
+              "Incorrect username/password or server settings.",
+              "Verify credentials and server settings. Enable 2FA app password if applicable."
             ],
             [
-              "Process fails to start",
-              "Service dependency missing",
-              "Check required services"
+              "\"Connection Timed Out\"",
+              "Network blockage, incorrect port, or server offline.",
+              "Check firewall, verify port numbers, ping server address."
             ],
             [
-              "Configuration not saved",
-              "File permissions issue",
-              "Verify write permissions"
+              "Emails stuck in Outbox",
+              "SMTP server issue, large attachment, or offline mode.",
+              "Verify SMTP settings, reduce attachment size, ensure client is online."
             ]
           ]
         }
       ]
     },
     {
-      "title": "Additional Information",
+      "title": "Additional Resources",
       "content": [
         {
           "list": [
-            "Link to related knowledge base articles",
-            "References to official documentation",
-            "Contact information for additional support"
+            {
+              "title": "",
+              "description": "<a href=\"#\">KB-NET-002: Diagnosing Network Connectivity Issues</a>"
+            },
+            {
+              "title": "",
+              "description": "<a href=\"#\">External Link: Microsoft Outlook Support</a>"
+            },
+            {
+              "title": "",
+              "description": "Contact IT Help Desk at extension 1234 or helpdesk@example.com"
+            }
           ]
         }
       ]
@@ -113,7 +160,7 @@
         {
           "alert": {
             "title": "Success Indicators",
-            "content": "Describe how users can verify that the solution worked correctly:Expected system behaviorSpecific confirmation messagesPerformance improvements"
+            "content": "You will know the issue is resolved when:Your email client connects successfully to the mail server.You can send and receive new emails without errors.No error messages related to email connection are displayed."
           }
         }
       ]
@@ -131,15 +178,9 @@
             ],
             [
               "1.0",
-              "[Initial Date]",
-              "Initial creation",
-              "[Author Name]"
-            ],
-            [
-              "1.1",
-              "[Update Date]",
-              "Added troubleshooting section",
-              "[Author Name]"
+              "2025-07-16",
+              "Initial creation for email client troubleshooting.",
+              "AI Assistant"
             ]
           ]
         }

@@ -31,11 +31,20 @@
 
 **Reasoning:** This reorganization improves repository clarity, maintainability, and makes it easier to locate specific file types. It also logically groups related components of the RAG system setup.
 
-**Future Steps (as outlined):**
+## 2025-07-16 - RAG System Debugging and Performance Improvements
 
-1.  **Install Python Libraries:** Ensure `beautifulsoup4`, `sentence-transformers`, `langchain`, and `chromadb` are installed.
-2.  **Run `extract_content.py`:** To generate structured JSON from completed HTML documents.
-3.  **Run `generate_embeddings.py`:** To create text chunks with embeddings.
-4.  **Run `populate_vector_db.py`:** To index data into ChromaDB.
-5.  **Choose and Set Up Local LLM:** Select and configure a local LLM and serving framework.
-6.  **Develop Query Application:** Build an application to interact with the RAG system (query, retrieve, prompt LLM, display response).
+**Decisions Made:**
+
+1.  **Improved Example Content:** Updated `article-example.html` and `application-process-example.html` with more realistic and detailed help desk content to provide better training data for the RAG system.
+2.  **Increased Retrieval Context:** Increased `n_results` in `python_scripts/query_rag.py` from 3 to 5 to allow the LLM to retrieve more relevant chunks from the vector database, providing richer context for responses.
+3.  **Enhanced Content Extraction (`extract_content.py`):** Modified `extract_content.py` to improve the structural preservation of content, particularly for list items (separating bolded titles from descriptions) and tables, ensuring more meaningful data is passed to the chunking stage.
+4.  **Refined Chunking and Flattening (`generate_embeddings.py`):** Updated `python_scripts/generate_embeddings.py` to leverage the improved structure from `extract_content.py` in its `flatten_content` function. Also, increased `chunk_size` to 700 and `chunk_overlap` to 70 to provide more comprehensive chunks for embedding.
+5.  **Resolved Script Errors:** Debugged and fixed `IndentationError` and `AttributeError` in `generate_embeddings.py` by correcting function definitions, calls, and ensuring the script properly excludes its own output file (`document_embeddings.json`) during processing.
+6.  **Full RAG Pipeline Re-execution:** Systematically re-ran `extract_content.py`, `generate_embeddings.py`, and `populate_vector_db.py` after each significant modification to ensure the ChromaDB was updated with the latest, most accurate data.
+
+**Outcome:** These iterative improvements led to significantly better RAG system performance, with the LLM now providing accurate and contextually relevant answers for previously failing queries.
+
+**Future Steps:**
+
+1.  **Choose and Set Up Local LLM:** Select and configure a local LLM and serving framework.
+2.  **Develop Query Application:** Build an application to interact with the RAG system (query, retrieve, prompt LLM, display response).

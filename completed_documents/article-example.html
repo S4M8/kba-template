@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Knowledge Base Article Template</title>
+  <title>Troubleshooting Email Client Connection Issues</title>
   <style>
     /* Reset and base styles */
     * {
@@ -358,8 +358,8 @@
         <img src="logo.png" alt="Corporate Logo" class="kb-logo">
       </div>
       <div class="kb-header-text">
-        <h1 class="kb-title">[ARTICLE TITLE]</h1>
-        <p class="kb-subtitle">[Brief description of what this article covers]</p>
+        <h1 class="kb-title">Troubleshooting Email Client Connection Issues</h1>
+        <p class="kb-subtitle">Resolving common problems with Outlook, Thunderbird, and webmail access.</p>
       </div>
     </div>
 
@@ -369,43 +369,46 @@
       <div class="kb-metadata">
         <div class="kb-meta-item">
           <span class="kb-meta-label">Article ID:</span>
-          <span class="kb-meta-value">[KB-XXXX]</span>
+          <span class="kb-meta-value">KB-EML-001</span>
         </div>
         <div class="kb-meta-item">
           <span class="kb-meta-label">Category:</span>
-          <span class="kb-meta-value">[Software/Hardware/Network/etc.]</span>
+          <span class="kb-meta-value">Software/Email</span>
         </div>
         <div class="kb-meta-item">
           <span class="kb-meta-label">Last Updated:</span>
-          <span class="kb-meta-value">[Date]</span>
+          <span class="kb-meta-value">2025-07-16</span>
         </div>
         <div class="kb-meta-item">
           <span class="kb-meta-label">Author:</span>
-          <span class="kb-meta-value">[Author Name]</span>
+          <span class="kb-meta-value">AI Assistant</span>
+        の部分を修正しました。</span>
         </div>
       </div>
 
       <!-- Overview Section -->
       <div class="kb-section">
         <h2 class="kb-section-title">Overview</h2>
-        <p>Provide a clear, concise overview of the issue, procedure, or topic. This should give readers a quick understanding of what they'll learn from this article.</p>
+        <p>This article provides step-by-step instructions to diagnose and resolve common email client connection problems, including issues with sending, receiving, or accessing email through desktop applications like Microsoft Outlook or Mozilla Thunderbird, and web-based email services.</p>
       </div>
 
       <!-- Symptoms/Problem Description -->
       <div class="kb-section">
         <h2 class="kb-section-title">Symptoms</h2>
         <ul class="kb-list">
-          <li>Describe the first symptom or indicator of the problem</li>
-          <li>List additional symptoms users might experience</li>
-          <li>Include error messages or codes if applicable</li>
+          <li>Email client displays "Disconnected" or "Needs Password" message.</li>
+          <li>Unable to send or receive emails.</li>
+          <li>Error messages like "Server not found," "Connection timed out," or "Authentication failed."</li>
+          <li>Webmail access issues (e.g., unable to log in, page not loading).</li>
+          <li>Emails stuck in outbox.</li>
         </ul>
       </div>
 
       <!-- Cause Section -->
       <div class="kb-section">
         <h2 class="kb-section-title">Cause</h2>
-        <p>Explain the root cause of the issue or why this procedure is necessary. This helps technicians understand the underlying problem.</p>
-      </div>
+        <p>Email connection issues can stem from various sources, including incorrect account settings, network connectivity problems, firewall/antivirus interference, or server-side outages. This guide will help you systematically check for these common causes.</p>
+      }
 
       <!-- Solution/Resolution -->
       <div class="kb-section">
@@ -413,46 +416,57 @@
 
         <div class="kb-alert kb-alert-info">
           <div class="kb-alert-title">Before You Begin</div>
-          List any prerequisites, permissions, or preparations needed before starting the solution.
+          Ensure your computer is connected to the internet and try accessing a website (e.g., google.com) to confirm basic network connectivity.
         </div>
 
         <h3>Step-by-Step Instructions</h3>
         <ol class="kb-ordered-list">
           <li>
-            <strong>First step description</strong><br>
-            Provide detailed instructions for the first step. Include any specific settings, locations, or commands.
+            <strong>Check Internet Connection:</strong><br>
+            Verify your device has an active internet connection. Try opening a web browser and navigating to a known website like <code>https://www.google.com</code>. If you cannot access websites, troubleshoot your network connection first.
           </li>
           <li>
-            <strong>Second step description</strong><br>
-            Continue with the next step. Use clear, actionable language.
+            <strong>Verify Email Account Settings:</strong><br>
+            Incorrect server settings (IMAP/POP3, SMTP), port numbers, or encryption methods are common culprits. Refer to your email provider's documentation for the correct settings. For corporate email, contact your IT department.
           </li>
           <li>
-            <strong>Third step description</strong><br>
-            Add more steps as needed. Each step should be atomic and clear.
+            <strong>Check Password:</strong><br>
+            Confirm you are using the correct password. If you recently changed your email password, update it in your email client settings. Try logging into your webmail directly to rule out a password issue.
+          </li>
+          <li>
+            <strong>Disable Firewall/Antivirus Temporarily:</strong><br>
+            Security software can sometimes block email client connections. Temporarily disable your firewall or antivirus software and try connecting. If this resolves the issue, configure your security software to allow your email client.
+          </li>
+          <li>
+            <strong>Restart Email Client and Computer:</strong><br>
+            A simple restart can often resolve temporary glitches. Close your email client completely and reopen it. If the issue persists, restart your computer.
+          </li>
+          <li>
+            <strong>Repair/Recreate Email Profile (Outlook Specific):</strong><br>
+            For Microsoft Outlook, a corrupted mail profile can cause connection issues. You can try repairing your existing profile or creating a new one via the Mail Setup (Outlook) in Control Panel.
           </li>
         </ol>
 
         <div class="kb-alert kb-alert-warning">
           <div class="kb-alert-title">Important Note</div>
-          Include any warnings, cautions, or important considerations that users should be aware of.
+          Temporarily disabling security software should only be done for testing purposes. Re-enable it immediately after testing to protect your system.
         </div>
       </div>
 
       <!-- Code Example (if applicable) -->
       <div class="kb-section">
-        <h2 class="kb-section-title">Code Example</h2>
-        <p>If your solution involves code, scripts, or command-line instructions, include them here:</p>
+        <h2 class="kb-section-title">Command Line Network Test</h2>
+        <p>You can use the <code>ping</code> command to test connectivity to your email server:</p>
         <div class="kb-code">
-          # Example command or script
-          echo "This is a sample command"
-          Get-Service | Where-Object {$_.Status -eq "Running"}
+          ping mail.example.com
+          telnet mail.example.com 993
         </div>
-        <p>For inline code references, use: <span class="kb-inline-code">Get-Process</span></p>
+        <p>Replace <code>mail.example.com</code> with your actual email server address and <code>993</code> with the appropriate port (e.g., 587 for SMTP, 993 for IMAPS, 995 for POP3S).</p>
       </div>
 
       <!-- Troubleshooting -->
       <div class="kb-section">
-        <h2 class="kb-section-title">Troubleshooting</h2>
+        <h2 class="kb-section-title">Troubleshooting Table</h2>
         <table class="kb-table">
           <thead>
             <tr>
@@ -463,19 +477,19 @@
           </thead>
           <tbody>
             <tr>
-              <td>Error message appears</td>
-              <td>Insufficient permissions</td>
-              <td>Run as administrator</td>
+              <td>"Authentication Failed"</td>
+              <td>Incorrect username/password or server settings.</td>
+              <td>Verify credentials and server settings. Enable 2FA app password if applicable.</td>
             </tr>
             <tr>
-              <td>Process fails to start</td>
-              <td>Service dependency missing</td>
-              <td>Check required services</td>
+              <td>"Connection Timed Out"</td>
+              <td>Network blockage, incorrect port, or server offline.</td>
+              <td>Check firewall, verify port numbers, ping server address.</td>
             </tr>
             <tr>
-              <td>Configuration not saved</td>
-              <td>File permissions issue</td>
-              <td>Verify write permissions</td>
+              <td>Emails stuck in Outbox</td>
+              <td>SMTP server issue, large attachment, or offline mode.</td>
+              <td>Verify SMTP settings, reduce attachment size, ensure client is online.</td>
             </tr>
           </tbody>
         </table>
@@ -483,11 +497,11 @@
 
       <!-- Additional Information -->
       <div class="kb-section">
-        <h2 class="kb-section-title">Additional Information</h2>
+        <h2 class="kb-section-title">Additional Resources</h2>
         <ul class="kb-list">
-          <li>Link to related knowledge base articles</li>
-          <li>References to official documentation</li>
-          <li>Contact information for additional support</li>
+          <li><a href="#">KB-NET-002: Diagnosing Network Connectivity Issues</a></li>
+          <li><a href="#">External Link: Microsoft Outlook Support</a></li>
+          <li>Contact IT Help Desk at extension 1234 or helpdesk@example.com</li>
         </ul>
       </div>
 
@@ -496,11 +510,11 @@
         <h2 class="kb-section-title">Verification</h2>
         <div class="kb-alert kb-alert-success">
           <div class="kb-alert-title">Success Indicators</div>
-          <p>Describe how users can verify that the solution worked correctly:</p>
+          <p>You will know the issue is resolved when:</p>
           <ul style="margin-top: 10px;">
-            <li>Expected system behavior</li>
-            <li>Specific confirmation messages</li>
-            <li>Performance improvements</li>
+            <li>Your email client connects successfully to the mail server.</li>
+            <li>You can send and receive new emails without errors.</li>
+            <li>No error messages related to email connection are displayed.</li>
           </ul>
         </div>
       </div>
@@ -520,15 +534,9 @@
           <tbody>
             <tr>
               <td>1.0</td>
-              <td>[Initial Date]</td>
-              <td>Initial creation</td>
-              <td>[Author Name]</td>
-            </tr>
-            <tr>
-              <td>1.1</td>
-              <td>[Update Date]</td>
-              <td>Added troubleshooting section</td>
-              <td>[Author Name]</td>
+              <td>2025-07-16</td>
+              <td>Initial creation for email client troubleshooting.</td>
+              <td>AI Assistant</td>
             </tr>
           </tbody>
         </table>
@@ -537,8 +545,8 @@
 
     <!-- Footer -->
     <div class="kb-footer">
-      <p>This knowledge base article was created for [Organization Name] Help Desk Team</p>
-      <p>For additional support, contact: [Contact Information]</p>
+      <p>This knowledge base article was created for Example Corp Help Desk Team</p>
+      <p>For additional support, contact: helpdesk@example.com</p>
     </div>
   </div>
 </body>

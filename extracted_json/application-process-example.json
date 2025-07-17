@@ -1,17 +1,17 @@
 {
-  "title": "[Application Process Name]",
-  "subtitle": "[Brief description of the process]",
+  "title": "Password Reset Process for Active Directory Users",
+  "subtitle": "Step-by-step guide for help desk technicians to reset user passwords.",
   "metadata": {
-    "Process ID": "[PROC-XXXX]",
-    "Application": "[Application Name]",
-    "Last Updated": "[Date]",
-    "Author": "[Author Name]"
+    "Process ID": "PROC-AD-001",
+    "Application": "Active Directory",
+    "Last Updated": "2025-07-16",
+    "Author": "AI Assistant"
   },
   "sections": [
     {
       "title": "Overview",
       "content": [
-        "Provide a clear, concise overview of the application process. This should give readers a quick understanding of what the process accomplishes."
+        "This document outlines the standard operating procedure for help desk technicians to reset user passwords within Active Directory. This process ensures security compliance and efficient resolution of user access issues."
       ]
     },
     {
@@ -20,42 +20,72 @@
         {
           "alert": {
             "title": "Before You Begin",
-            "content": "List any prerequisites, permissions, or preparations needed before starting the solution."
+            "content": "Ensure you have appropriate administrative privileges in Active Directory Users and Computers (ADUC) and have verified the user's identity according to company policy."
           }
         },
         {
           "list": [
-            "First step descriptionProvide detailed instructions for the first step. Include any specific settings, locations, or commands.",
-            "Second step descriptionContinue with the next step. Use clear, actionable language.",
-            "Third step descriptionAdd more steps as needed. Each step should be atomic and clear."
+            {
+              "title": "Open Active Directory Users and Computers (ADUC):",
+              "description": "On your administrative workstation, open Server Manager, then navigate to Tools > Active Directory Users and Computers."
+            },
+            {
+              "title": "Locate the User Account:",
+              "description": "In the ADUC console, browse to the Organizational Unit (OU) where the user's account is located. You can also use the \"Find\" feature (Ctrl+F) to search for the user by name."
+            },
+            {
+              "title": "Reset Password:",
+              "description": "Right-click on the user account, select \"Reset Password...\"."
+            },
+            {
+              "title": "Enter New Password:",
+              "description": "In the \"Reset Password\" dialog box, enter a new, strong password in both the \"New password\" and \"Confirm password\" fields. Ensure the password meets complexity requirements."
+            },
+            {
+              "title": "Set User Options:",
+              "description": "Typically, you should check \"User must change password at next logon\" to enforce a new password creation by the user. Uncheck \"Account is locked out\" if it is checked."
+            },
+            {
+              "title": "Confirm Reset:",
+              "description": "Click \"OK\" to complete the password reset. Inform the user of their temporary password and instruct them to change it immediately upon logging in."
+            }
           ]
         },
         {
           "alert": {
             "title": "Important Note",
-            "content": "Include any warnings, cautions, or important considerations that users should be aware of."
+            "content": "Never share temporary passwords via unencrypted channels (e.g., unencrypted email or chat). Always communicate them securely, preferably verbally or through a secure, one-time password system."
           }
         }
       ]
     },
     {
-      "title": "Code Example",
+      "title": "PowerShell Command for Password Reset",
       "content": [
-        "If your solution involves code, scripts, or command-line instructions, include them here:",
+        "For experienced technicians, a password can also be reset using PowerShell:",
         {
-          "code": "# Example command or script\n          echo \"This is a sample command\"\n          Get-Service | Where-Object {$_.Status -eq \"Running\"}"
+          "code": "Set-ADUser -Identity \"username\" -NewPassword (Read-Host -AsSecureString \"Enter new password\") -ChangePasswordAtLogon $true"
         },
-        "For inline code references, use:Get-Process"
+        "Replace\"username\"with the actual user's SAMAccountName."
       ]
     },
     {
-      "title": "Additional Information",
+      "title": "Related Articles",
       "content": [
         {
           "list": [
-            "Link to related knowledge base articles",
-            "References to official documentation",
-            "Contact information for additional support"
+            {
+              "title": "",
+              "description": "<a href=\"#\">KB-AD-002: Unlocking User Accounts in Active Directory</a>"
+            },
+            {
+              "title": "",
+              "description": "<a href=\"#\">PROC-AD-003: Creating New User Accounts in Active Directory</a>"
+            },
+            {
+              "title": "",
+              "description": "Internal Policy: Password Management Policy"
+            }
           ]
         }
       ]
@@ -66,7 +96,7 @@
         {
           "alert": {
             "title": "Success Indicators",
-            "content": "Describe how users can verify that the solution worked correctly:Expected system behaviorSpecific confirmation messagesPerformance improvements"
+            "content": "The password reset is successful when:The user is able to log in with the new temporary password.The user is prompted to change their password upon first login (if \"User must change password at next logon\" was checked).The user confirms successful access to their resources."
           }
         }
       ]
@@ -84,15 +114,9 @@
             ],
             [
               "1.0",
-              "[Initial Date]",
-              "Initial creation",
-              "[Author Name]"
-            ],
-            [
-              "1.1",
-              "[Update Date]",
-              "Added troubleshooting section",
-              "[Author Name]"
+              "2025-07-16",
+              "Initial creation of Active Directory password reset process.",
+              "AI Assistant"
             ]
           ]
         }
